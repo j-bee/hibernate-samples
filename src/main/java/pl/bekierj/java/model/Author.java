@@ -15,12 +15,6 @@ public class Author {
     @Column
     private String name;
 
-    //can this Set be parametrized?
-    /*@ManyToMany
-    @JoinTable(name = "PublicationAuthor", joinColumns = { @JoinColumn(name = "authorId", referencedColumnName = "id") },
-            inverseJoinColumns = { @JoinColumn(name = "publicationId", referencedColumnName = "id") })*/
-
-    //https://stackoverflow.com/questions/14111607/manytomanymappedby-foo
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors")
     private Set<Publication> articles = new HashSet();
 
